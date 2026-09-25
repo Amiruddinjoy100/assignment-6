@@ -1,12 +1,27 @@
+import Image from "next/image";
+import logo from "@/assets/logo.png";
+
 const Navbar=()=> {
   return (
     <nav className="w-full bg-[#090b0f] border-b border-[#1b1f26] text-white">
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
 
        
-        <div className="text-sm font-extrabold tracking-[0.2em]">
-          FITLOG
-        </div>
+        <div className="flex items-center gap-2">
+
+  <Image
+    src={logo}
+    alt="Fitlog logo"
+    width={28}
+    height={28}
+    className="object-contain"
+  />
+
+  <div className="text-sm font-extrabold tracking-[0.2em]">
+    FITLOG
+  </div>
+
+</div>
 
 
         <div
