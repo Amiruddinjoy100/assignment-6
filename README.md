@@ -207,7 +207,3 @@ GitHub:
 https://github.com/Amiruddinjoy100
 
 ---
-
-## © Copyright
-
-© 2026 FitLog — Workout Library. Train hard, log honest.
