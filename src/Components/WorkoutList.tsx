@@ -1,112 +1,49 @@
-import WorkoutCard from "./WorkoutCard";
-
-
-const WorkoutFetch = async () => {
-
-    const res = await fetch(
-        "https://api.abcz.workers.dev/api/fitlog"
-    );
-
-
-    const data = await res.json();
-
-
-    return data;
-
-};
-
-
+import WorkoutCard from "@/Components/WorkoutCard";
+import type { Workout } from "@/types/workout";
 
 const WorkoutList = async () => {
+  const res = await fetch(
+    "https://api.abcz.workers.dev/api/fitlog",
+    {
+      cache: "no-store",
+    }
+  );
 
+  if (!res.ok) {
+    throw new Error("Failed to fetch workouts");
+  }
 
-    const datas = await WorkoutFetch();
+  const workouts: Workout[] = await res.json();
 
+  return (
+    <section
+      id="library"
+      className="bg-black px-5 py-12 text-white sm:px-8"
+    >
+      <div className="mx-auto max-w-7xl">
 
+        <h2 className="text-4xl font-black uppercase sm:text-5xl">
+          THE LIBRARY
+        </h2>
 
-    return (
+        <p className="mt-2 text-sm text-gray-400">
+          Twelve lifts covering every major muscle group.
+        </p>
 
-        <section
-            id="library"
-            className="
-                px-5
-                sm:px-8
-                py-12
-            "
-        >
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-            <div
-                className="
-                    max-w-7xl
-                    mx-auto
-                "
-            >
+          {workouts.map((workout) => (
+            <WorkoutCard
+              key={workout.id}
+              workout={workout}
+            />
+          ))}
 
+        </div>
 
-                {/* Heading */}
-
-                <h2
-                    className="
-                        text-4xl
-                        sm:text-5xl
-                        font-black
-                        uppercase
-                        text-white
-                    "
-                >
-                    THE LIBRARY
-                </h2>
-
-
-
-                <p
-                    className="
-                        mt-2
-                        text-sm
-                        text-gray-400
-                    "
-                >
-                    Twelve lifts covering every major muscle group.
-                </p>
-
-
-
-
-                {/* Workout Grid */}
-
-                <div
-                    className="
-                        mt-8
-                        grid
-                        grid-cols-1
-                        md:grid-cols-2
-                        lg:grid-cols-3
-                        gap-6
-                    "
-                >
-
-
-                    {
-                        datas.map((data)=>(
-                            <WorkoutCard
-                                key={data.id}
-                                workout={data}
-                            />
-                        ))
-                    }
-
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-    );
-
+      </div>
+    </section>
+  );
 };
-
 
 export default WorkoutList;

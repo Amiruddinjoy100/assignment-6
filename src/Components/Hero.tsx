@@ -1,155 +1,52 @@
-// import { ArrowDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowDown } from "lucide-react";
+
 import banner from "@/assets/banner.png";
 
 const Hero = () => {
   return (
-    <section className="px-10 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <section className="bg-[#1b2229] px-4 py-8 sm:px-8">
 
-      <div
-        className="
-          relative
-          overflow-hidden
-          max-w-7xl
-          mx-auto
-          rounded-xl
-          border border-[#22262f]
-          bg-[#14171d]
-          px-6
-          py-8
-          sm:px-8
-          lg:px-10
-          h-[calc(85vh-20px)]
-          sm:min-h-[350px]
-          lg:min-h-[270px]
-          flex
-          items-center
-        "
-      >
+      <div className="mx-auto grid max-w-7xl overflow-hidden rounded-2xl border border-[#242933] bg-[#14171d] md:grid-cols-[1.15fr_0.85fr]">
 
-   
-        <div
-          className="
-            z-10
-            max-w-xl
-            w-full
-            lg:w-1/2
-          "
-        >
+        <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-14">
 
-
-          <p
-            className="
-              mb-3
-              text-[10px]
-              sm:text-xs
-              font-bold
-              tracking-widest
-              text-[#ccff00]
-            "
-          >
+          <p className="mb-5 text-xs font-bold tracking-widest text-[#ccff00]">
             WORKOUT LIBRARY
           </p>
 
-
-
-          <h1
-            className="
-              text-white
-              uppercase
-              font-black
-              leading-[0.9]
-              tracking-tight
-              text-3xl
-              sm:text-4xl
-              lg:text-5xl
-              font-oswald
-            "
-          >
-            TRAIN WITH INTENT. LOG
+          <h1 className="text-4xl font-black uppercase leading-[0.92] text-white sm:text-5xl lg:text-6xl">
+            TRAIN WITH INTENT.
             <br />
-            EVERY SET.
+            LOG EVERY SET.
           </h1>
 
-
-
-          <p
-            className="
-              mt-4
-              max-w-md
-              text-xs
-              sm:text-sm
-              leading-relaxed
-              text-gray-400
-            "
-          >
-            FitLog is a dark, no-nonsense gym companion:
-            pick a lift, lock it into today's plan,
-            and watch the week's work add up.
+          <p className="mt-6 max-w-xl text-sm leading-7 text-gray-400 sm:text-base">
+            FitLog is a dark, no-nonsense gym companion: pick a lift,
+            lock it into today&apos;s plan, and watch the week&apos;s work
+            add up.
           </p>
 
-
-          <a
+          <Link
             href="#library"
-            className="
-              mt-5
-              sm:mt-6
-              inline-flex
-              items-center
-              gap-2
-              rounded-md
-              bg-[#ccff00]
-              px-5
-              py-2.5
-              text-[10px]
-              font-bold
-              text-black
-              hover:bg-lime-300
-              transition
-            "
+            className="mt-7 inline-flex w-fit items-center gap-2 rounded-md bg-[#ccff00] px-6 py-3 text-xs font-bold text-black"
           >
             BROWSE WORKOUTS
-            {/* <ArrowDown size={14}/> */}
-          </a>
+            <ArrowDown size={16} />
+          </Link>
 
         </div>
 
-
-        <div
-          className="
-            absolute
-            bottom-0
-            right-0
-
-            sm:right-2
-            lg:right-6
-
-            opacity-40
-            sm:opacity-70
-            lg:opacity-100
-
-            pointer-events-none
-          "
-        >
-
+        <div className="relative min-h-[280px] sm:min-h-[340px] md:min-h-[500px]">
           <Image
             src={banner}
             alt="Workout athlete"
-            width={320}
-            height={320}
-            className="
-              object-contain
-
-              w-[180px]
-              sm:w-[240px]
-              lg:w-[300px]
-
-              h-auto
-            "
+            fill
+            priority
+            className="object-contain object-bottom"
           />
-
         </div>
-
 
       </div>
 

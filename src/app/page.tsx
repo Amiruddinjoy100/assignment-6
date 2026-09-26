@@ -1,15 +1,17 @@
+import { Suspense } from "react";
+
 import Hero from "@/Components/Hero";
-import Image from "next/image";
 import WorkoutList from "@/Components/WorkoutList";
-
-
+import WorkoutLoading from "@/Components/WorkoutLoading";
 
 export default function Home() {
   return (
-    <div>
-    <Hero/>
-    <WorkoutList></WorkoutList>
-      
-    </div>
+    <>
+      <Hero />
+
+      <Suspense fallback={<WorkoutLoading />}>
+        <WorkoutList />
+      </Suspense>
+    </>
   );
 }
